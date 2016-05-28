@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guess the number game</title>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="index.js"></script>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body ng-app="app">
+    <div class="container" ng-controller="GuessTheNumberController">
+        <h2>Guess the number !</h2>
+        <p class="well lead">Guess the computer generated random number between 1 and 1000.</p>
+        <label>You Guess:</label>
+        <input type="number" ng-model="guess" />
+        <button ng-click="verifyGuess()" class="btn btn-primary btn-sm">Verify</button>
+        <button ng-click="initializeGame()" class="btn btn-warning btn-sm">Restart</button>
+        <p>
+            <p ng-show="deviation<0" class="alert alert-warning">Your guess is higher</p>
+            <p ng-show="deviation>0" class="alert alert-warning">Your guess is lower</p>
+            <p ng-show="deviation===0" class="alert alert-success">You got it !</p>
+        </p>
+    </div>
+</body>
+
+</html>
